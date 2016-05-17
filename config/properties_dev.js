@@ -4,6 +4,7 @@ module.exports = {
     },
     firebase: {
         dbRef : 'https://radiant-torch-9144.firebaseio.com/',
-        newsRef: 'https://radiant-torch-9144.firebaseio.com/news'
+        newsRef: 'https://radiant-torch-9144.firebaseio.com/news',
+        userRef: 'https://radiant-torch-9144.firebaseio.com/users'
     }
 };

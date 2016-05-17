@@ -1,6 +1,8 @@
 'use strict';
 
 var NewsController = require('./controllers/NewsController');
+var AuthController = require('./controllers/AuthController');
+var UserController = require('./controllers/UserController');
 
 module.exports.setup = function (app) {
 
@@ -10,8 +12,20 @@ module.exports.setup = function (app) {
                 message: 'welcome to the api!'
             });
         })
-            
-    /** news routes **/
+        /** auth routes **/
+        .post('/api/login', AuthController.login)
+        .post('/api/register', AuthController.register)
+        .post('/api/logout', AuthController.logout)
+        .post('/api/lost-password', AuthController.lostPassword)
+        .post('/api/change-password', AuthController.lostPassword)
+
+        /** user routes **/
+        .post('/api/users', UserController.createUser)
+        .put('/api/users', UserController.updateUser)
+        .get('/api/users/:id', UserController.getUser)
+        .delete('/api/users', UserController.deleteUser)
+
+        /** news routes **/
         .post('/api/news', NewsController.createNews)
         .get('/api/news', NewsController.getAllNews)
         .get('/api/news/:id', NewsController.getNews)
